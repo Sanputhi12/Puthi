@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puthi | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    h1{
+      color: #0b1220;
+    }
+    :root {
+      --bg-dark: #0b1220;
+      --card-dark: #111a2e;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top right, #606060, transparent 40%),
+                  radial-gradient(circle at top left, #4b4f7a, transparent 40%),
+                  var(--bg-dark);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10, 3, 3, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 10px 24px;
+      border-radius: 999px;
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 120px 20px;
+      text-align: center;
+    }
+
+    .hero img.avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .socials {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .socials a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card-dark);
+      border-radius: 50%;
+      font-size: 14px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .about img {
+      width: 220px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    img {
+      mask-image: linear-gradient(#fff 80%, transparent);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-dark);
+      padding: 20px;
+      border-radius: 14px;
+      text-align: left;
+    }
+
+    .card h3 { margin-bottom: 10px; }
+    .card p { font-size: 14px; color: var(--text-muted); }
+
+    .tags {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 12px;
+      background: rgba(213, 215, 215, 0.15);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: var(--card-dark);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .entry {
+      width: 45%;
+      background: var(--card-dark);
+      padding: 16px;
+      border-radius: 12px;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .entry.left { margin-right: auto; }
+    .entry.right { margin-left: auto; }
+
+    .contact form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input, textarea {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      background: #e5e7eb;
+      font-family: inherit;
+    }
+
+    button {
+      background: var(--accent);
+      border: none;
+      padding: 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before { left: 10px; }
+      .entry { width: 100%; margin-left: 30px !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home" class="hero">
+    <img src="doge.jpg" alt="Avatar" class="avatar">
+    <h1>Hi, I'm Puthi.</h1>
+    <p><strong>Video Editor</strong>, constantly fueling my passion for learning. I'm always on the lookout for new things to try.</p>
+    <div class="socials">
+      <a href="#">GH</a>
+      <a href="#">IN</a>
+      <a href="#">TW</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <img src="PF.png" width="300px">
+         
+    <p>I've been working as a Video Editor , focusing on frontend with Capcut & Adobe Premiere Pro,and I can use Cammera.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>APP BABMall</h3>
+        <p>Cut Video,Shooting and Design Poster.</p>
+        <div class="tags">
+          <span class="tag">Capcut</span>
+          <span class="tag">Cammera</span>
+          <span class="tag">Adobe Premiere Pro</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Puthi's Home Chores</h3>
+        <p>Personal project to manage household tasks.</p>
+        <div class="tags">
+          <span class="tag">Capcut</span>
+          <span class="tag">Adobe Premiere Pro</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Network</div>
+      <div class="skill">Video Editor</div>
+      <div class="skill">IT Technican</div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>My Experience</h2>
+    <div class="timeline">
+      <div class="entry left">
+        <h3>IT Technican</h3>
+        <p>Built foundational IT and troubleshooting skills.</p>
+      </div>
+      <div class="entry right">
+        <h3>Video Editor</h3>
+        <p>Worked on real-world full-stack projects.</p>
+      </div>
+      <div class="entry left">
+        <h3>Designer</h3>
+        <p>Currently developing enterprise-level applications.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="email" placeholder="Your email" required>
+      <textarea rows="4" placeholder="Your message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2026 Puthi. All rights reserved.
+  </footer>
+
+  <script>
+    function submitForm(e) {
+      e.preventDefault();
+      alert('Message sent successfully!');
+    }
+  </script>
+
+</body>
+</html>
